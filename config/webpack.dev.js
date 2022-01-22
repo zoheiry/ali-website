@@ -1,4 +1,6 @@
 const { merge } = require('webpack-merge');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
 const commonConfig = require('./webpack.common');
 
 const port = 3000;
@@ -8,6 +10,34 @@ const devConfig = {
   devServer: {
     port,
   },
+  module: {
+    rules: [
+      {
+        test: /\.scss$/,
+        use: [
+          { loader: 'style-loader' },
+          {
+            loader: 'css-loader',
+            options: {
+              modules: {
+                localIdentName: '[name]__[local]'
+              }
+            }
+          },
+          {
+            loader: 'sass-loader',
+            options: { sourceMap: true }
+          }
+        ],
+      },
+    ],
+  },
+  plugins: [
+    new MiniCssExtractPlugin({
+      filename: '[name].css',
+      chunkFilename: '[id].css',
+    })
+  ]
 };
 
 module.exports = merge(commonConfig, devConfig);
