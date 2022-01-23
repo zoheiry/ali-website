@@ -1,0 +1,17 @@
+$size: 150px;
+
+.root {
+  width: $size;
+  border-radius: 50%;
+  height: $size;
+  background: #6283ab;
+  display: flex;
+  justify-content: center;
+  box-sizing: border-box;
+  align-items: self-end;
+  overflow: hidden;
+
+  > img {
+    height: 90%;
+  }
+}

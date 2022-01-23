@@ -1,7 +1,19 @@
-.title {
-  color: red;
+.root {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 900px;
+  height: 400px;
+  margin: 0 auto;
 }
 
-h1 {
-  color: blue;
+.intro {
+  display: flex;
+  align-items: center;  
+}
+
+.introText {
+  padding-left: 10px;
+  line-height: 1.2;
 }
