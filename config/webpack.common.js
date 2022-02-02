@@ -23,6 +23,10 @@ module.exports = {
           { loader: 'file-loader' },
         ],
       },
+      {
+        test: /\.(raw.html|raw.css)$/i,
+        loader: "raw-loader",
+      },
     ]
   },
   plugins: [

@@ -10,6 +10,9 @@ const devConfig = {
   devServer: {
     port,
   },
+  output: {
+    publicPath: "/",
+  },
   module: {
     rules: [
       {

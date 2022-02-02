@@ -7,7 +7,7 @@ const prodConfig = {
   mode: 'production',
   output: {
     filename: '[name].[contenthash].js',
-    // publicPath: '/marketing/latest/',
+    publicPath: "",
   },
   module: {
     rules: [
@@ -17,7 +17,7 @@ const prodConfig = {
           { loader: MiniCssExtractPlugin.loader },
           {
             loader: 'css-loader',
-            options: { modules: true }
+            options: { modules: true },
           },
           { loader: 'sass-loader' },
         ],

@@ -1,0 +1,48 @@
+.root {
+  height: 100vh;
+  position: fixed;
+  border: 1px solid #ccc;
+  padding: 8px;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 350px;
+  background: rgb(48, 48, 48);
+  line-height: 1.2;
+  color: #fff;
+}
+
+.comment {
+  color: #857F6B;
+  font-style: italic;
+}
+
+.selector {
+  color: #E69F0F;
+}
+
+.key {
+  color: #64D5EA;
+}
+
+.value {
+  color: #BE84F2;
+}
+
+.root pre::after {
+  content: "";
+  display: inline-block;
+  width: 2px;
+  height: 14px;
+  background: #fff;
+  position: relative;
+  top: 3px;
+  margin-left: 1px;
+  animation: flash 1s infinite;
+}
+
+@keyframes flash {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}
