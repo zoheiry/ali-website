@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from 'react';
 
-const DEFAULT_WRITING_SPEED = 50;
+const DEFAULT_WRITING_SPEED = 20;
 
 const useCssWriter = ({ cssString, writingSpeed = DEFAULT_WRITING_SPEED, skipAnimation = false }) => {
   const [cursorIndex, setCursorIndex] = useState(0);

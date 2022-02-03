@@ -1,15 +1,19 @@
 import React, { useState, useEffect } from 'react';
-import Classes from './App.scss';
+import Classes from './App.module.scss';
 
 import html from './content/intro.raw.html';
 import css from './content/intro.raw.css';
+
 import useCssWriter from './hooks/useCssWriter';
+import useHtmlWriter from './hooks/useHtmlWriter';
+
 import Editor from './components/Editor/Editor';
 import profileImageSrc from './images/my-avatar.png';
 
 
 const App = () => {
   const [skipAnimation, setSkipAnimation] = useState(false);
+  const { writtenHtml } = useHtmlWriter({ htmlString: html, skipAnimation });
   const { writtenCss } = useCssWriter({ cssString: css, skipAnimation });
 
   useEffect(() => {
@@ -27,18 +31,7 @@ const App = () => {
 
   return (
     <div className={Classes.root}>
-      <div className="intro">
-        <div>
-          <div className="profileImageRoot">
-            <img src={profileImageSrc} />
-          </div>
-        </div>
-        <p className="introText">
-          Hello, my name is Ali Elzoheiry, I am a software engineer with 8+ years of experience.
-          <br />
-          I love building products and working with fun and passionate people to bring our ideas to life.
-        </p>
-      </div>
+      <div dangerouslySetInnerHTML={{ __html: writtenHtml }} />
       <Editor content={writtenCss} />
     </div>
   );
