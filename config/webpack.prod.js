@@ -23,7 +23,7 @@ const prodConfig = {
         ],
       },
       {
-        test: /\.scss$/,
+        test: /\.s?css$/,
         exclude: /\.module\.scss$/,
         use: [
           { loader: MiniCssExtractPlugin.loader },

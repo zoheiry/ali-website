@@ -1,30 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Classes from './App.module.scss';
-
-import html from './content/intro.raw.html';
-import css from './content/intro.raw.css';
-import useCssWriter from './hooks/useCssWriter';
-import Editor from './components/Editor/Editor';
 import profileImageSrc from './images/my-avatar.png';
 
 
 const App = () => {
-  const [skipAnimation, setSkipAnimation] = useState(false);
-  const { writtenCss } = useCssWriter({ cssString: css, skipAnimation });
-
-  useEffect(() => {
-    const keyDownHandler = ({ key }) => {
-      if (key === 'Escape') {
-        setSkipAnimation(true);
-      }
-    };
-    window.addEventListener('keydown', keyDownHandler);
-
-    return () => {
-      window.removeEventListener('keydown', keyDownHandler);
-    };
-  }, []);
-
   return (
     <div className={Classes.root}>
       <div className="intro">
@@ -39,7 +18,6 @@ const App = () => {
           I love building products and working with fun and passionate people to bring our ideas to life.
         </p>
       </div>
-      <Editor content={writtenCss} />
     </div>
   );
 };

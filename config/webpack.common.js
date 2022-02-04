@@ -36,8 +36,7 @@ module.exports = {
     new CopyWebpackPlugin({
       patterns: [
         { from: './public/index.css', to: 'index.css' },
-        { from: './public/favicon.png', to: 'favicon.png' },
-        { from: './src/images/my-avatar.png', to: 'my-avatar.png' },
+        { from: './public/favicon.png', to: 'favicon.png' }
       ]
     })
   ],
