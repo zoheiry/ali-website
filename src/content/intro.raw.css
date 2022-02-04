@@ -1,3 +1,6 @@
+* {
+  transition: all 0.5s ease;
+}
 .intro {
   display: flex;
   align-items: center;  
