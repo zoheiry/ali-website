@@ -1,9 +1,14 @@
 .root {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 900px;
-  height: 400px;
-  margin: 0 auto;
+
+}
+
+.page {
+
+  &:nth-child(even) {
+    background-color: red;
+  }
+
+  &:nth-child(odd) {
+    background-color: blue;
+  }
 }
