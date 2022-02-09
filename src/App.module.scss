@@ -4,11 +4,19 @@
 
 .page {
 
-  &:nth-child(even) {
-    background-color: red;
+  &:nth-child(1) {
+    background-color: #cce8cc;
   }
 
-  &:nth-child(odd) {
-    background-color: blue;
+  &:nth-child(2) {
+    background-color: #fcf6e5;
+  }
+
+  &:nth-child(3) {
+    background-color: #facfad;
+  }
+
+  &:nth-child(4) {
+    background-color: #f9f2ea;
   }
 }
