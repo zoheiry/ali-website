@@ -1,0 +1,16 @@
+.root {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  background-color: #cce8cc;
+
+  .title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 74px;
+    font-weight: 300;
+    color: #11712e;
+    animation-delay: 600ms;
+    animation-fill-mode: forwards;
+  }
+}
