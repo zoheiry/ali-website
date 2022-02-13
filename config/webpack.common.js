@@ -18,7 +18,7 @@ module.exports = {
         ]
       },
       {
-        test: /\.(png|jpe?g|gif|woff|svg||eot|ttf)$/i,
+        test: /\.(png|jpe?g|gif|woff|svg||eot|ttf|otf)$/i,
         use: [
           { loader: 'file-loader' },
         ],
@@ -35,7 +35,6 @@ module.exports = {
     }),
     new CopyWebpackPlugin({
       patterns: [
-        { from: './public/index.css', to: 'index.css' },
         { from: './public/favicon.png', to: 'favicon.png' }
       ]
     })

@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import App from './App';
-import 'animate.css';
+import './index.scss';
 
 ReactDOM.render(
   <App name="Alizoh" />,

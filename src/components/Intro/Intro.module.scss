@@ -1,16 +1,108 @@
+$background-color: #F0E4FF;
+$text-color: #F95C32;
+
+$vw-multiplier-mobile: 0.25;
+$vw-multiplier-desktop: 0.17;
+$vw-multiplier-wide-desktop: 0.12;
+
+@function scalableValue($value, $multiplier) {
+  @return #{$value * $multiplier}vw;
+}
+
+@mixin scalableRule($rule, $value) {
+  #{$rule}: scalableValue($value, $vw-multiplier-mobile);
+  
+  @media screen and (min-width: 768px) {
+    #{$rule}: scalableValue($value, $vw-multiplier-desktop);
+  }
+
+  @media screen and (min-width: 1200px) {
+    #{$rule}: scalableValue($value, $vw-multiplier-wide-desktop);
+  }
+}
+
+
 .root {
   display: flex;
   height: 100%;
-  align-items: center;
   justify-content: center;
-  background-color: #cce8cc;
+  background-color: $background-color;
+  flex-direction: column;
+  color: $text-color;
+  @include scalableRule(padding-left, 32);
 
   .title {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 74px;
-    font-weight: 300;
-    color: #11712e;
-    animation-delay: 600ms;
-    animation-fill-mode: forwards;
+    @include scalableRule(font-size, 48);
+    font-family: 'Equip';
+    font-weight: bold;
+    line-height: 1.2;
+  }
+
+  .subTitle {
+    @include scalableRule(font-size, 15);
+    @include scalableRule(padding-top, 12);
+    @include scalableRule(padding-bottom, 12);
+    
+  }
+  
+  .links {
+    display: flex;
+    align-items: center;
+    @include scalableRule(font-size, 32);
+    @include scalableRule(margin-top, 4);
+  }
+
+  .linkWrapper {
+    @include scalableRule(margin-left, 6);
+    @include scalableRule(margin-right, 6);
+
+    &:first-of-type {
+      margin-left: 0;
+    }
+
+    &:last-of-type {
+      margin-right: 0;
+    }
+
+    > a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background-color: $text-color;
+      color: #fff;
+      text-decoration: none;
+      transition: 0.2s;
+      @include scalableRule(padding, 6);
+      @include scalableRule(border-radius, 3);
+
+      &:hover {
+        background-color: #fff;
+        color: $text-color;
+      }
+    }
+
+    
+  }
+
+  .buttonWrapper {
+    display: inline-flex;
+    margin-top: scalableValue(24, $vw-multiplier-mobile);
+  }
+
+  .button {
+    font-family: 'Equip';
+    font-weight: bold;
+    border: solid $text-color;
+    color: $text-color;
+    text-decoration: none;
+    @include scalableRule(border-width, 3);
+    @include scalableRule(border-radius, 8);
+    @include scalableRule(font-size, 16);
+    @include scalableRule(padding, 16);
+
+    &:hover {
+      background-color: $text-color;
+      color: #fff;
+    }
   }
 }
