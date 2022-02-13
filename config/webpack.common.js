@@ -35,6 +35,7 @@ module.exports = {
     }),
     new CopyWebpackPlugin({
       patterns: [
+        { from: './public/ali-elzoheiry-cv.pdf', to: 'ali-elzoheiry-cv.pdf' },
         { from: './public/favicon.png', to: 'favicon.png' }
       ]
     })
