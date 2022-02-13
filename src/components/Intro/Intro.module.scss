@@ -99,7 +99,8 @@ $vw-multiplier-wide-desktop: 0.12;
     @include scalableRule(border-radius, 8);
     @include scalableRule(font-size, 16);
     @include scalableRule(padding, 16);
-
+    transition: 0.2s;
+    
     &:hover {
       background-color: $text-color;
       color: #fff;
