@@ -1,15 +1,10 @@
-@import '../../scss//utils.scss';
-
-$background-color: #F0E4FF;
-$text-color: #F95C32;
+@import '../../../scss//utils.scss';
 
 .root {
   display: flex;
   height: 100%;
   justify-content: center;
-  background-color: $background-color;
   flex-direction: column;
-  color: $text-color;
   @include scalableRule(padding-left, 32);
 
   .title {
@@ -31,7 +26,7 @@ $text-color: #F95C32;
     display: flex;
     align-items: center;
     @include scalableRule(font-size, 32);
-    @include scalableRule(margin-top, 4);
+    @include scalableRule(margin-top, 8);
   }
 
   .linkWrapper {
@@ -50,7 +45,7 @@ $text-color: #F95C32;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      background-color: $text-color;
+      // background-color: $text-color;
       color: #fff;
       text-decoration: none;
       transition: 0.2s;
@@ -59,7 +54,7 @@ $text-color: #F95C32;
 
       &:hover {
         background-color: #fff;
-        color: $text-color;
+        // color: $text-color;
       }
     }
 
@@ -74,8 +69,8 @@ $text-color: #F95C32;
   .button {
     font-family: 'Equip';
     font-weight: bold;
-    border: solid $text-color;
-    color: $text-color;
+    // border: solid $text-color;
+    // color: $text-color;
     text-decoration: none;
     @include scalableRule(border-width, 3);
     @include scalableRule(border-radius, 8);
@@ -84,7 +79,7 @@ $text-color: #F95C32;
     transition: 0.2s;
     
     &:hover {
-      background-color: $text-color;
+      // background-color: $text-color;
       color: #fff;
     }
   }

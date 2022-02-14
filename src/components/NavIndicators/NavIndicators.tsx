@@ -1,15 +1,19 @@
 import React from 'react';
+import { TSlide } from '../../slidesConfig';
 
 import Classes from './NavIndicators.module.scss';
 
-const NavIndicators = () => {
+type Props = {
+  activeSlideIndex: number;
+  config: TSlide[];
+}
+
+const NavIndicators = ({ config, activeSlideIndex }: Props) => {
   return (
     <div className={Classes.root}>
-      <div className={`${Classes.indicator} ${Classes.active}`} />
-      <div className={Classes.indicator} />
-      <div className={Classes.indicator} />
-      <div className={Classes.indicator} />
-      <div className={Classes.indicator} />
+      {config.map((slideConfig, index) => (
+        <div className={`${Classes.indicator} ${activeSlideIndex === index && Classes.active}`} />  
+      ))}
     </div>
   )
 };
