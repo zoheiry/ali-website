@@ -1,0 +1,19 @@
+$vw-multiplier-mobile: 0.25;
+$vw-multiplier-desktop: 0.17;
+$vw-multiplier-wide-desktop: 0.12;
+
+@function scalableValue($value, $multiplier) {
+  @return #{$value * $multiplier}vw;
+}
+
+@mixin scalableRule($rule, $value) {
+  #{$rule}: scalableValue($value, $vw-multiplier-mobile);
+  
+  @media screen and (min-width: 768px) {
+    #{$rule}: scalableValue($value, $vw-multiplier-desktop);
+  }
+
+  @media screen and (min-width: 1200px) {
+    #{$rule}: scalableValue($value, $vw-multiplier-wide-desktop);
+  }
+}

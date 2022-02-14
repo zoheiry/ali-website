@@ -1,0 +1,29 @@
+@import '../../scss//utils.scss';
+
+.root {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  z-index: 100;
+  @include scalableRule(right, 30);
+  top: 0;
+  bottom: 0;
+  justify-content: center;
+}
+
+.indicator {
+  @include scalableRule(width, 15);
+  @include scalableRule(height, 15);
+  background-color: #F95C32;
+  border-radius: 50%;
+  @include scalableRule(margin-bottom, 22);
+
+  &:last-of-type {
+     margin-bottom: 0;
+  }
+
+  &.active {
+    border: solid #fff;
+    @include scalableRule(border-width, 4);
+  }
+}

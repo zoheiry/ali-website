@@ -52,25 +52,25 @@ table {
 @font-face {
   font-family: 'Equip';
   font-weight: 300;
-  src: local('Equip'), url('./fonts/Equip/Equip-Light.otf') format('opentype')
+  src: local('Equip'), url('../fonts/Equip/Equip-Light.otf') format('opentype')
 }
 
 @font-face {
   font-family: 'Equip';
   font-weight: 400;
-  src: local('Equip'), url('./fonts/Equip/Equip-Regular.otf') format('opentype')
+  src: local('Equip'), url('../fonts/Equip/Equip-Regular.otf') format('opentype')
 }
 
 @font-face {
   font-family: 'Equip';
   font-weight: 500;
-  src: local('Equip'), url('./fonts/Equip/Equip-Medium.otf') format('opentype')
+  src: local('Equip'), url('../fonts/Equip/Equip-Medium.otf') format('opentype')
 }
 
 @font-face {
   font-family: 'Equip';
   font-weight: 700;
-  src: local('Equip'), url('./fonts/Equip/Equip-Bold.otf') format('opentype')
+  src: local('Equip'), url('../fonts/Equip/Equip-Bold.otf') format('opentype')
 }
 
 
@@ -80,4 +80,8 @@ body {
   font-family: 'Lato', sans-serif;
 	box-sizing: border-box;
 	background: #f7f7f7;
+}
+
+* {
+	box-sizing: border-box;
 }
