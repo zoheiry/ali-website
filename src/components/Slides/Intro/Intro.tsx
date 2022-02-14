@@ -2,6 +2,9 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLinkedinIn, faStackOverflow, faGithub } from '@fortawesome/free-brands-svg-icons';
 
+import Title from '../../Title/Title';
+import BodyText from '../../BodyText/BodyText';
+
 import Classes from './Intro.module.scss';
 
 const LINKS = {
@@ -16,9 +19,9 @@ type Props = {
 
 const Intro = ({ isActive }: Props) => (
   <div className={Classes.root}>
-    <h1 className={Classes.title}>ALI <br /> ELZOHEIRY</h1>
+    <Title>ALI <br /> ELZOHEIRY</Title>
 
-    <h2 className={Classes.subTitle}>Frontend Chapter Lead @ eBay</h2>
+    <BodyText as="h2" className={Classes.subTitle}>Frontend Chapter Lead @ eBay</BodyText>
 
     <ul className={Classes.links}>
       <li className={Classes.linkWrapper}>

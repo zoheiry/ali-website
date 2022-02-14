@@ -1,0 +1,8 @@
+@import '../../scss//utils.scss';
+
+.root {
+  @include scalableRule(font-size, 48);
+  font-family: 'Equip';
+  font-weight: bold;
+  line-height: 1.2;
+}

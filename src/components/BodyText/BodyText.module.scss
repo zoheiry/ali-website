@@ -1,0 +1,7 @@
+@import '../../scss//utils.scss';
+
+.root {
+  font-weight: bold;
+  line-height: 1.2;
+  @include scalableRule(font-size, 16);
+}

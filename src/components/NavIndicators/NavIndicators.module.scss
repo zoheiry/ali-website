@@ -5,25 +5,24 @@
   display: flex;
   flex-direction: column;
   z-index: 100;
-  @include scalableRule(right, 30);
   top: 0;
-  bottom: 0;
+  height: 100vh;
   justify-content: center;
+  transition: top 0.7s ease;
+  @include scalableRule(right, 30);
 }
 
 .indicator {
   @include scalableRule(width, 15);
   @include scalableRule(height, 15);
-  background-color: #F95C32;
-  border-radius: 50%;
   @include scalableRule(margin-bottom, 22);
+  @include scalableRule(border-width, 4);
+  border-radius: 50%;
+  border-style: solid;
+  border-color: transparent;
+  transition: background-color 0.2s, border-color 0.2s;
 
   &:last-of-type {
      margin-bottom: 0;
-  }
-
-  &.active {
-    border: solid #fff;
-    @include scalableRule(border-width, 4);
   }
 }

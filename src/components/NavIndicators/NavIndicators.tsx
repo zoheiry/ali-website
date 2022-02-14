@@ -1,18 +1,27 @@
 import React from 'react';
-import { TSlide } from '../../slidesConfig';
 
 import Classes from './NavIndicators.module.scss';
 
 type Props = {
   activeSlideIndex: number;
-  config: TSlide[];
+  numberOfSlides: number;
+  contentColor: string;
+  onNavigate: (number) => void;
 }
 
-const NavIndicators = ({ config, activeSlideIndex }: Props) => {
+const NavIndicators = ({ numberOfSlides, activeSlideIndex, contentColor, onNavigate }: Props) => {
   return (
-    <div className={Classes.root}>
-      {config.map((slideConfig, index) => (
-        <div className={`${Classes.indicator} ${activeSlideIndex === index && Classes.active}`} />  
+    <div className={Classes.root} style={{ top: `${100 * activeSlideIndex}vh` }}>
+      {Array(numberOfSlides).fill({}).map((_, index) => (
+        <div
+          className={`${Classes.indicator}`}
+          onClick={() => onNavigate(index + 1)}
+          key={`nav-indicator-${index}`}
+          style={{
+            backgroundColor: activeSlideIndex === index ? 'transparent' : contentColor,
+            borderColor: activeSlideIndex === index ? contentColor : 'transparent'
+          }}
+        />  
       ))}
     </div>
   )

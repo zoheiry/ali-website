@@ -1,0 +1,13 @@
+@import '../../../scss//utils.scss';
+
+.root {
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  flex-direction: column;
+  @include scalableRule(padding-left, 32); 
+}
+
+.content {
+  @include scalableRule(margin-top, 12);
+}

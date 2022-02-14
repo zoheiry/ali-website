@@ -5,6 +5,7 @@ export type TSlide = {
   background: {
     color?: string;
     image?: string;
+    video?: string;
   },
   contentColor: string;
 }

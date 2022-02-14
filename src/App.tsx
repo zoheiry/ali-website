@@ -6,41 +6,80 @@ import SlidesContext from './context/SlidesContext';
 import Slide from './components/Slide/Slide';
 import Intro from './components/Slides/Intro/Intro';
 import About from './components/Slides/About/About';
+import City from './components/Slides/City/City';
 import NavIndicators from './components/NavIndicators/NavIndicators';
+import amsterdamVideoSrc from './videos/amsterdam-bike-ride.mp4';
 
 import Classes from './App.module.scss';
+
+const initialState = {
+  activeSlideIndex: 0,
+  slides: [
+    {
+      id: 'intro',
+      background: {
+        color: '#F0E4FF',
+      },
+      contentColor: '#F95C32',
+    },
+    {
+      id: 'about',
+      background: {
+        color: '#F95C32',
+      },
+      contentColor: '#F0E4FF',
+    },
+    {
+      id: 'city',
+      background: {
+        video: amsterdamVideoSrc,
+      },
+      contentColor: '#FFFFFF',
+    }
+  ]
+}
 
 
 const reducer = (state, action) => {
   switch (action.type) {
     case 'GO_TO_SLIDE':
-      return { activeSlideIndex: action.payload.slideIndex }
+      return { ...state, activeSlideIndex: action.payload.slideIndex }
   }
 }
 
 const App = () => {
-  const slidesConfig = useContext(SlidesContext);
-  const [state, dispatch] = useReducer(reducer, { activeSlideIndex: 0 });
-  
+  const [state, dispatch] = useReducer(reducer, initialState);
+  if (!state.slides?.length) {
+    return null;
+  }
+
   return (
     <div className={Classes.root}>
-      <NavIndicators config={Object.values(slidesConfig)} activeSlideIndex={state.activeSlideIndex} />
-      <ReactFullpage duration={600}
+      <ReactFullpage
+        duration={600}
         easingcss3="ease"
-        onLeave={(_, { index }) => dispatch({ type: 'GO_TO_SLIDE', payload: { slideIndex: index } })}
-        render={({ state, fullpageApi }) => {
+        onLeave={(_, { index }) => { dispatch({ type: 'GO_TO_SLIDE', payload: { slideIndex: index } }) }}
+        render={({ fullpageApi }) => {
           return (
-            <ReactFullpage.Wrapper>
-              <Slide {...slidesConfig.INTRO}>
-                <Intro />
-              </Slide>
-              <Slide {...slidesConfig.ABOUT}>
-                <About />
-              </Slide>
-              <Slide {...slidesConfig.CITY}>
-                <About />
-              </Slide>
-            </ReactFullpage.Wrapper>
+            <>
+              <NavIndicators
+                onNavigate={fullpageApi?.moveTo}
+                numberOfSlides={state.slides?.length}
+                activeSlideIndex={state.activeSlideIndex}
+                contentColor={state.slides[state.activeSlideIndex].contentColor}
+              />
+              <ReactFullpage.Wrapper>
+                <Slide {...state.slides?.[0]}>
+                  <Intro />
+                </Slide>
+                <Slide {...state.slides?.[1]}>
+                  <About />
+                </Slide>
+                <Slide {...state.slides?.[2]}>
+                  <City />
+                </Slide>
+              </ReactFullpage.Wrapper>
+            </>
           );
         }}
       />

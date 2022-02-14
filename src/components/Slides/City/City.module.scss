@@ -1,0 +1,10 @@
+@import '../../../scss//utils.scss';
+
+.root {
+  display: flex;
+  height: 100%;
+  justify-content: flex-end;
+  flex-direction: column;
+  @include scalableRule(padding-left, 32); 
+  @include scalableRule(padding-bottom, 64); 
+}
