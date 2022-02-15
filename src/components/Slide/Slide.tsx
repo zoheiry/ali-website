@@ -1,5 +1,6 @@
 import React, { ReactNode } from 'react';
 import { TSlide } from '../../slidesConfig';
+import BackgroundVideo from '../BackgroundVideo/BackgroundVideo';
 
 import Classes from './Slide.module.scss';
 
@@ -17,11 +18,7 @@ const Slide = ({ children, background, contentColor }: Props) => {
   }
   return (
     <div className={`${Classes.root} section`} style={style}>
-      {background.video && (
-        <video className={Classes.backgroundVideo} autoPlay loop muted data-keepplaying playsInline>
-          <source src={background.video} type="video/mp4" />
-        </video>
-      )}
+      {background.video && <BackgroundVideo src={background.video} /> }
       <div className={Classes.content}>
         {children}
       </div>
