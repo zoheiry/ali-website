@@ -6,9 +6,8 @@
   flex-direction: column;
   z-index: 100;
   top: 0;
-  height: 100vh;
+  bottom: 0;
   justify-content: center;
-  transition: top 0.7s ease;
   @include scalableRule(right, 30);
 }
 

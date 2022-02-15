@@ -6,16 +6,16 @@ type Props = {
   activeSlideIndex: number;
   numberOfSlides: number;
   contentColor: string;
-  onNavigate: (number) => void;
+  slideIds: string[];
 }
 
-const NavIndicators = ({ numberOfSlides, activeSlideIndex, contentColor, onNavigate }: Props) => {
+const NavIndicators = ({ numberOfSlides, activeSlideIndex, contentColor, slideIds }: Props) => {
   return (
-    <div className={Classes.root} style={{ top: `${100 * activeSlideIndex}vh` }}>
+    <div className={Classes.root}>
       {Array(numberOfSlides).fill({}).map((_, index) => (
-        <div
+        <a
+          href={`#${slideIds[index]}`}
           className={`${Classes.indicator}`}
-          onClick={() => onNavigate(index + 1)}
           key={`nav-indicator-${index}`}
           style={{
             backgroundColor: activeSlideIndex === index ? 'transparent' : contentColor,

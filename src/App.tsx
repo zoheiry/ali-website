@@ -1,8 +1,6 @@
 import React, { useReducer, useContext } from 'react';
 import ReactFullpage from '@fullpage/react-fullpage';
 
-import SlidesContext from './context/SlidesContext';
-
 import Slide from './components/Slide/Slide';
 import Intro from './components/Slides/Intro/Intro';
 import About from './components/Slides/About/About';
@@ -53,21 +51,24 @@ const App = () => {
     return null;
   }
 
+  const slideIds = state.slides.map(slide => slide.id);
+
   return (
     <div className={Classes.root}>
+      <NavIndicators
+        numberOfSlides={state.slides?.length}
+        activeSlideIndex={state.activeSlideIndex}
+        contentColor={state.slides[state.activeSlideIndex].contentColor}
+        slideIds={slideIds}
+      />
       <ReactFullpage
         duration={600}
         easingcss3="ease"
+        anchors={slideIds}
         onLeave={(_, { index }) => { dispatch({ type: 'GO_TO_SLIDE', payload: { slideIndex: index } }) }}
         render={({ fullpageApi }) => {
           return (
             <>
-              <NavIndicators
-                onNavigate={fullpageApi?.moveTo}
-                numberOfSlides={state.slides?.length}
-                activeSlideIndex={state.activeSlideIndex}
-                contentColor={state.slides[state.activeSlideIndex].contentColor}
-              />
               <ReactFullpage.Wrapper>
                 <Slide {...state.slides?.[0]}>
                   <Intro />
