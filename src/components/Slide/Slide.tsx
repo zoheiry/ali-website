@@ -18,7 +18,7 @@ const Slide = ({ children, background, contentColor }: Props) => {
   return (
     <div className={`${Classes.root} section`} style={style}>
       {background.video && (
-        <video className={Classes.backgroundVideo} autoPlay loop muted data-keepplaying>
+        <video className={Classes.backgroundVideo} autoPlay loop muted data-keepplaying playsInline>
           <source src={background.video} type="video/mp4" />
         </video>
       )}
