@@ -1,11 +1,11 @@
-import React, { useReducer, useContext } from 'react';
+import React, { useReducer } from 'react';
 import ReactFullpage from '@fullpage/react-fullpage';
 
 import Slide from './components/Slide/Slide';
 import Intro from './components/Slides/Intro/Intro';
 import About from './components/Slides/About/About';
 import City from './components/Slides/City/City';
-import Skills from './components/Slides/Skills/Skills';
+import Projects from './components/Slides/Projects/Projects';
 import NavIndicators from './components/NavIndicators/NavIndicators';
 
 import amsterdamVideoSrc from './videos/amsterdam-bike-ride.mp4';
@@ -44,15 +44,15 @@ const initialState = {
       contentColor: '#7232F9',
     }
   ]
-}
+};
 
 
 const reducer = (state, action) => {
   switch (action.type) {
-    case 'GO_TO_SLIDE':
-      return { ...state, activeSlideIndex: action.payload.slideIndex }
+  case 'GO_TO_SLIDE':
+    return { ...state, activeSlideIndex: action.payload.slideIndex };
   }
-}
+};
 
 const App = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
@@ -74,8 +74,9 @@ const App = () => {
         duration={600}
         easingcss3="ease"
         anchors={slideIds}
-        onLeave={(_, { index }) => { dispatch({ type: 'GO_TO_SLIDE', payload: { slideIndex: index } }) }}
-        render={({ fullpageApi }) => {
+        normalScrollElements='.normalScroll'
+        onLeave={(_, { index }) => { dispatch({ type: 'GO_TO_SLIDE', payload: { slideIndex: index } }); }}
+        render={() => {
           return (
             <>
               <ReactFullpage.Wrapper>
@@ -89,7 +90,7 @@ const App = () => {
                   <City />
                 </Slide>
                 <Slide {...state.slides?.[3]}>
-                  <Skills />
+                  <Projects />
                 </Slide>
               </ReactFullpage.Wrapper>
             </>

@@ -33,6 +33,6 @@ const slidesConfig: { [key: string]: TSlide } = {
     },
     contentColor: '#FFFFFF',
   }
-}
+};
 
 export default slidesConfig;

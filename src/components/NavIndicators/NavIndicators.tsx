@@ -24,7 +24,7 @@ const NavIndicators = ({ numberOfSlides, activeSlideIndex, contentColor, slideId
         />  
       ))}
     </div>
-  )
+  );
 };
 
 export default NavIndicators;

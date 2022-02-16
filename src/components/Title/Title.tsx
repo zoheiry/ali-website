@@ -13,6 +13,6 @@ const Title = ({ children, as = 'h1', className = '' }: Props) => {
   return (
     <Component className={`${Classes.root} ${className}`}>{children}</Component>
   );
-}
+};
 
 export default Title;

@@ -13,6 +13,6 @@ const BodyText = ({ children, as = 'p', className = '' }: Props) => {
   return (
     <Component className={`${Classes.root} ${className}`}>{children}</Component>
   );
-}
+};
 
 export default BodyText;

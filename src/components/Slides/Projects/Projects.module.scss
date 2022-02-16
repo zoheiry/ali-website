@@ -1,0 +1,48 @@
+@import '../../../scss//utils.scss';
+
+.root {
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.textContent {
+  @include scalableRule(padding-left, 32);
+}
+
+.projectsList {
+  display: flex;
+  align-items: center;
+  overflow: auto;
+  @include scalableRule(padding-left, 50);
+  @include scalableRule(margin-top, 30);
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.projectCardWrapper {
+  @include scalableRule(padding-left, 20);
+  @include scalableRule(padding-right, 20);
+}
+
+.projectCard {
+  background-color: #FFF;
+  background-size: cover;
+  display: flex;
+  border-radius: 8px;
+  @include scalableRule(padding, 20);
+  @include scalableRule(width, 215);
+  @include scalableRule(height, 215);
+}
+
+.projectName {
+  font-weight: bold;
+  font-family: 'Equip';
+  color: #fff;
+  @include scalableRule(font-size, 20);
+}

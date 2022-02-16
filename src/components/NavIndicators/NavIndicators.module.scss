@@ -8,7 +8,7 @@
   top: 0;
   bottom: 0;
   justify-content: center;
-  @include scalableRule(right, 30);
+  @include scalableRule(right, 15);
 }
 
 .indicator {

@@ -13,11 +13,7 @@ const LINKS = {
   GITHUB: 'https://github.com/zoheiry',
 };
 
-type Props = {
-  isActive?: boolean;
-}
-
-const Intro = ({ isActive }: Props) => (
+const Intro = () => (
   <div className={Classes.root}>
     <Title>ALI <br /> ELZOHEIRY</Title>
 
