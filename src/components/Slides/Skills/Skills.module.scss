@@ -1,0 +1,19 @@
+@import '../../../scss//utils.scss';
+
+.root {
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  flex-direction: column;
+  @include scalableRule(padding-left, 32);
+}
+
+.wordsWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.word {
+  padding: 8px;
+}

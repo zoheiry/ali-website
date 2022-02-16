@@ -5,7 +5,9 @@ import Slide from './components/Slide/Slide';
 import Intro from './components/Slides/Intro/Intro';
 import About from './components/Slides/About/About';
 import City from './components/Slides/City/City';
+import Skills from './components/Slides/Skills/Skills';
 import NavIndicators from './components/NavIndicators/NavIndicators';
+
 import amsterdamVideoSrc from './videos/amsterdam-bike-ride.mp4';
 
 import Classes from './App.module.scss';
@@ -33,6 +35,13 @@ const initialState = {
         video: amsterdamVideoSrc,
       },
       contentColor: '#FFFFFF',
+    },
+    {
+      id: 'skills',
+      background: {
+        color: '#FFF0EC',
+      },
+      contentColor: '#7232F9',
     }
   ]
 }
@@ -78,6 +87,9 @@ const App = () => {
                 </Slide>
                 <Slide {...state.slides?.[2]}>
                   <City />
+                </Slide>
+                <Slide {...state.slides?.[3]}>
+                  <Skills />
                 </Slide>
               </ReactFullpage.Wrapper>
             </>
