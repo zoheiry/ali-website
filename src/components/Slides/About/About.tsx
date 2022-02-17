@@ -7,7 +7,7 @@ import Classes from './About.module.scss';
 
 const About = () => (
   <div className={Classes.root}>
-    <Title as="h2">ABOUT <br /> ME</Title>
+    <Title as="h2" className={Classes.title}>ABOUT <br /> ME</Title>
     <BodyText className={Classes.content}>
       I am a software engineer with 8+ years of professional experience.
       <br />

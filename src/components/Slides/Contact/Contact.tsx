@@ -12,7 +12,7 @@ import Classes from './Contact.module.scss';
 const Contact = () => {
   return (
     <div className={Classes.root}>
-      <Title>CONTACT <br /> ME</Title>
+      <Title className={Classes.title}>CONTACT <br /> ME</Title>
 
       <SocialLinks className={Classes.socialLinksWrapper} />
 

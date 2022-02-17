@@ -1,4 +1,4 @@
-import image from './images/my-avatar.png';
+import amsterdamVideoSrc from './videos/amsterdam-bike-ride.mp4';
 
 export type TSlide = {
   id: string;
@@ -10,29 +10,42 @@ export type TSlide = {
   contentColor: string;
 }
 
-const slidesConfig: { [key: string]: TSlide } = {
-  INTRO: {
+const slidesConfig: TSlide[] = [
+  {
     id: 'intro',
     background: {
       color: '#F0E4FF',
     },
     contentColor: '#F95C32',
   },
-
-  ABOUT: {
+  {
     id: 'about',
     background: {
       color: '#F95C32',
     },
     contentColor: '#F0E4FF',
   },
-  CITY: {
+  {
     id: 'city',
     background: {
-      image: image,
+      video: amsterdamVideoSrc,
     },
     contentColor: '#FFFFFF',
-  }
-};
+  },
+  {
+    id: 'skills',
+    background: {
+      color: '#FFF0EC',
+    },
+    contentColor: '#7232F9',
+  },
+  {
+    id: 'contact',
+    background: {
+      color: '#F0E4FF',
+    },
+    contentColor: '#F95C32',
+  },
+];
 
 export default slidesConfig;

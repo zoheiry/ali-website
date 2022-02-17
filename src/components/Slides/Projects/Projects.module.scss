@@ -1,4 +1,5 @@
 @import '../../../scss//utils.scss';
+@import '../../../scss//animations.scss';
 
 .root {
   display: flex;
@@ -34,7 +35,7 @@
   background-color: #FFF;
   background-size: cover;
   display: flex;
-  border-radius: 8px;
+  @include scalableRule(border-radius, 8);
   @include scalableRule(padding, 20);
   @include scalableRule(width, 215);
   @include scalableRule(height, 215);
@@ -57,4 +58,29 @@
   top: 0;
   left: 0;
   background: rgba(0, 0, 0, 0.2);
+  @include scalableRule(border-radius, 8);
+}
+
+:global(.animated) {
+
+  .textContent {
+    @include animated(slideInLeft, 0.5s);
+  }
+
+  .projectsList {
+    @include animated(fadeIn, 0.8s);
+  }
+  
+  .projectCardWrapper:nth-child(1) {
+    @include animated(slideRight, 0.8s);
+  }
+  .projectCardWrapper:nth-child(2) {
+    @include animated(slideRight, 0.9s);
+  }
+  .projectCardWrapper:nth-child(3) {
+    @include animated(slideRight, 1s);
+  }
+  .projectCardWrapper:nth-child(4) {
+    @include animated(slideRight, 1.1s);
+  }
 }

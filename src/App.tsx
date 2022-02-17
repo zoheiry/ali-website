@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react';
+import React, { useState } from 'react';
 import ReactFullpage from '@fullpage/react-fullpage';
 
 import Slide from './components/Slide/Slide';
@@ -9,73 +9,20 @@ import Projects from './components/Slides/Projects/Projects';
 import Contact from './components/Slides/Contact/Contact';
 import NavIndicators from './components/NavIndicators/NavIndicators';
 
-import amsterdamVideoSrc from './videos/amsterdam-bike-ride.mp4';
+import slidesConfig from './slidesConfig';
 
 import Classes from './App.module.scss';
 
-const initialState = {
-  activeSlideIndex: 0,
-  slides: [
-    {
-      id: 'intro',
-      background: {
-        color: '#F0E4FF',
-      },
-      contentColor: '#F95C32',
-    },
-    {
-      id: 'about',
-      background: {
-        color: '#F95C32',
-      },
-      contentColor: '#F0E4FF',
-    },
-    {
-      id: 'city',
-      background: {
-        video: amsterdamVideoSrc,
-      },
-      contentColor: '#FFFFFF',
-    },
-    {
-      id: 'skills',
-      background: {
-        color: '#FFF0EC',
-      },
-      contentColor: '#7232F9',
-    },
-    {
-      id: 'contact',
-      background: {
-        color: '#F0E4FF',
-      },
-      contentColor: '#F95C32',
-    },
-  ]
-};
-
-
-const reducer = (state, action) => {
-  switch (action.type) {
-  case 'GO_TO_SLIDE':
-    return { ...state, activeSlideIndex: action.payload.slideIndex };
-  }
-};
-
 const App = () => {
-  const [state, dispatch] = useReducer(reducer, initialState);
-  if (!state.slides?.length) {
-    return null;
-  }
-
-  const slideIds = state.slides.map(slide => slide.id);
+  const [activeSlideIndex, setActiveSlideIndex] = useState(0);
+  const slideIds = slidesConfig.map(slide => slide.id);
 
   return (
     <div className={Classes.root}>
       <NavIndicators
-        numberOfSlides={state.slides?.length}
-        activeSlideIndex={state.activeSlideIndex}
-        contentColor={state.slides[state.activeSlideIndex].contentColor}
+        numberOfSlides={slidesConfig?.length}
+        activeSlideIndex={activeSlideIndex}
+        contentColor={slidesConfig[activeSlideIndex].contentColor}
         slideIds={slideIds}
       />
       <ReactFullpage
@@ -84,24 +31,24 @@ const App = () => {
         anchors={slideIds}
         recordHistory={false}
         normalScrollElements='.normalScroll'
-        onLeave={(_, { index }) => { dispatch({ type: 'GO_TO_SLIDE', payload: { slideIndex: index } }); }}
+        onLeave={(_, { index }) => { setActiveSlideIndex(index); }}
         render={() => {
           return (
             <>
               <ReactFullpage.Wrapper>
-                <Slide {...state.slides?.[0]}>
+                <Slide {...slidesConfig?.[0]} isActive={activeSlideIndex === 0}>
                   <Intro />
                 </Slide>
-                <Slide {...state.slides?.[1]}>
+                <Slide {...slidesConfig?.[1]} isActive={activeSlideIndex === 1}>
                   <About />
                 </Slide>
-                <Slide {...state.slides?.[2]}>
+                <Slide {...slidesConfig?.[2]} isActive={activeSlideIndex === 2}>
                   <City />
                 </Slide>
-                <Slide {...state.slides?.[3]}>
+                <Slide {...slidesConfig?.[3]} isActive={activeSlideIndex === 3}>
                   <Projects />
                 </Slide>
-                <Slide {...state.slides?.[4]}>
+                <Slide {...slidesConfig?.[4]} isActive={activeSlideIndex === 4}>
                   <Contact />
                 </Slide>
               </ReactFullpage.Wrapper>

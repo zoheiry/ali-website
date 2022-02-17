@@ -1,4 +1,5 @@
 @import '../../../scss//utils.scss';
+@import '../../../scss//animations.scss';
 
 .root {
   display: flex;
@@ -7,4 +8,10 @@
   flex-direction: column;
   @include scalableRule(padding-left, 32); 
   @include scalableRule(padding-bottom, 64); 
+}
+
+:global(.animated) {
+  .title {
+    @include animated(slideInUp, 0.5s);
+  }
 }

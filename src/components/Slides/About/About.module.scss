@@ -1,4 +1,5 @@
 @import '../../../scss//utils.scss';
+@import '../../../scss//animations.scss';
 
 .root {
   display: flex;
@@ -10,4 +11,14 @@
 
 .content {
   @include scalableRule(margin-top, 12);
+}
+
+:global(.animated) {
+  .title {
+    @include animated(slideInDown, 0.5s);
+  }
+
+  .content {
+    @include animated(slideInUp, 0.8s);
+  }
 }

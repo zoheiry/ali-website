@@ -8,9 +8,10 @@ type Props = {
   children?: ReactNode;
   background: TSlide['background'];
   contentColor: string;
+  isActive?: boolean;
 }
 
-const Slide = ({ children, background, contentColor }: Props) => {
+const Slide = ({ children, background, contentColor, isActive }: Props) => {
   const style = {
     color: contentColor,
     ...(background.image && { backgroundImage: `url("${background.image}")` }),
@@ -19,7 +20,7 @@ const Slide = ({ children, background, contentColor }: Props) => {
   return (
     <div className={`${Classes.root} section`} style={style}>
       {background.video && <BackgroundVideo src={background.video} /> }
-      <div className={Classes.content}>
+      <div className={`${Classes.content} ${isActive ? 'animated' : ''}`}>
         {children}
       </div>
     </div>
