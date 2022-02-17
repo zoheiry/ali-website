@@ -36,7 +36,8 @@ const PROJECTS = [
     poster: {
       src: reckonPoster,
       backgroundStyles: {
-        backgroundColor: '#823ffe'
+        backgroundColor: '#823ffe',
+        backgroundPosition: '100% 100%',
       }
     }
   },
@@ -72,6 +73,7 @@ const Projects = () => {
               target="_blank"
               rel="noreferrer"
             >
+              <div className={Classes.overlay} />
               <pre className={Classes.projectName}>{name}</pre>
             </a>
           </li>
