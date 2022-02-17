@@ -13,44 +13,13 @@
     
   }
   
-  .links {
-    display: flex;
-    align-items: center;
-    @include scalableRule(font-size, 32);
+  .socialLinksWrapper {
     @include scalableRule(margin-top, 8);
-  }
-
-  .linkWrapper {
-    @include scalableRule(margin-left, 6);
-    @include scalableRule(margin-right, 6);
-
-    &:first-of-type {
-      margin-left: 0;
-    }
-
-    &:last-of-type {
-      margin-right: 0;
-    }
-
-    > a {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      transition: 0.2s;
-      @include scalableRule(padding, 6);
-      @include scalableRule(border-radius, 3);
-
-      &:hover {
-        background-color: #fff;
-      }
-    }
-
-    
   }
 
   .buttonWrapper {
     display: inline-flex;
-    margin-top: scalableValue(24, $vw-multiplier-mobile);
+    @include scalableRule(margin-top, 20);
   }
 
   .button {

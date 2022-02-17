@@ -1,0 +1,35 @@
+@import '../../../scss/utils.scss';
+
+.root {
+  @include scalableRule(padding-left, 32); 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+
+.socialLinksWrapper {
+  @include scalableRule(margin-top, 16);
+}
+
+.contactsList {
+  @include scalableRule(margin-top, 24);
+}
+
+.contactWrapper {
+  @include scalableRule(margin-bottom, 16);
+
+  > a {
+    display: flex;
+    align-items: center;
+    
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.icon {
+  @include scalableRule(margin-right, 14);
+  @include scalableRule(font-size, 20);
+}

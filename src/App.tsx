@@ -6,6 +6,7 @@ import Intro from './components/Slides/Intro/Intro';
 import About from './components/Slides/About/About';
 import City from './components/Slides/City/City';
 import Projects from './components/Slides/Projects/Projects';
+import Contact from './components/Slides/Contact/Contact';
 import NavIndicators from './components/NavIndicators/NavIndicators';
 
 import amsterdamVideoSrc from './videos/amsterdam-bike-ride.mp4';
@@ -42,7 +43,14 @@ const initialState = {
         color: '#FFF0EC',
       },
       contentColor: '#7232F9',
-    }
+    },
+    {
+      id: 'contact',
+      background: {
+        color: '#F0E4FF',
+      },
+      contentColor: '#F95C32',
+    },
   ]
 };
 
@@ -74,6 +82,7 @@ const App = () => {
         duration={600}
         easingcss3="ease"
         anchors={slideIds}
+        recordHistory={false}
         normalScrollElements='.normalScroll'
         onLeave={(_, { index }) => { dispatch({ type: 'GO_TO_SLIDE', payload: { slideIndex: index } }); }}
         render={() => {
@@ -91,6 +100,9 @@ const App = () => {
                 </Slide>
                 <Slide {...state.slides?.[3]}>
                   <Projects />
+                </Slide>
+                <Slide {...state.slides?.[4]}>
+                  <Contact />
                 </Slide>
               </ReactFullpage.Wrapper>
             </>
