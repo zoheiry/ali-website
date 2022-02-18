@@ -67,7 +67,7 @@ const Projects = () => {
     <div className={Classes.root}>
       <div className={Classes.textContent}>
         <Title>SIDE <br /> PROJECTS</Title>
-        <BodyText>Some random things I had fun building</BodyText>
+        <BodyText as="p">Some random things I had fun building</BodyText>
       </div>
       <ul className={`${Classes.projectsList} normalScroll`}>
         {PROJECTS.map(({ name, link, poster, tags }) => (
@@ -84,7 +84,7 @@ const Projects = () => {
               <ul className={Classes.projectTags}>
                 {tags?.map((tag) => (
                   <li key={`${name}-${tag}`}>
-                    <BodyText>
+                    <BodyText as="span">
                       <FontAwesomeIcon icon={faHashtag}/>
                       &nbsp;{tag}
                     </BodyText>

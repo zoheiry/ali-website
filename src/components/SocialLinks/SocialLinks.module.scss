@@ -3,7 +3,7 @@
 .root {
   display: flex;
   align-items: center;
-  @include scalableRule(font-size, 32);
+  @include scalableRule(font-size, 24);
 
 }
 
@@ -26,8 +26,8 @@
     transition: 0.2s;
     background-color: #f95c32;
     color: #FFF;
-    @include scalableRule(width, 40);
-    @include scalableRule(height, 40);
+    @include scalableRule(width, 35);
+    @include scalableRule(height, 35);
     @include scalableRule(border-radius, 3);
 
     &:hover {
