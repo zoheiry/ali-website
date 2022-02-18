@@ -85,8 +85,8 @@ const Projects = () => {
                 {tags?.map((tag) => (
                   <li key={`${name}-${tag}`}>
                     <BodyText>
-                      <FontAwesomeIcon icon={faHashtag}/> &nbsp;
-                      {tag}
+                      <FontAwesomeIcon icon={faHashtag}/>
+                      &nbsp;{tag}
                     </BodyText>
                   </li>
                 ))}
