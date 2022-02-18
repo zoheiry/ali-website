@@ -52,7 +52,11 @@
   }
 
   .socialLinksWrapper {
-    @include animated(slideInUp, 1.6s);
+    @for $i from 1 through 4 {
+      li:nth-child(#{$i}) {
+        @include animated(slideInUp, 1.6s + $i * 0.05);
+      }
+    }
   }
 
   .button {

@@ -49,25 +49,16 @@
   }
 
   .socialLinksWrapper {
-    li:nth-child(1) {
-      @include animated(zoomIn, 0.6s);
-    }
-    li:nth-child(2) {
-      @include animated(zoomIn, 0.7s);
-    }
-    li:nth-child(3) {
-      @include animated(zoomIn, 0.8s);
-    }
-    li:nth-child(4) {
-      @include animated(zoomIn, 0.9s);
+    @for $i from 1 through 4 {
+      li:nth-child(#{$i}) {
+        @include animated(zoomIn, 0.5s + $i * 0.05);
+      }
     }
   }
 
-  .contactWrapper:nth-child(1) {
-    @include animated(slideInUp, 1s);
-  }
-
-  .contactWrapper:nth-child(2) {
-    @include animated(slideInUp, 1.2s);
+  @for $i from 1 through 2 {
+    .contactWrapper:nth-child(#{$i}) {
+      @include animated(slideInLeft, 0.5s + $i * 0.2);
+    }
   }
 }
