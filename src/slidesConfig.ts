@@ -1,4 +1,11 @@
+import { ReactNode } from 'react';
 import amsterdamVideoSrc from './videos/amsterdam-bike-ride.mp4';
+import Intro from './components/Slides/Intro/Intro';
+import About from './components/Slides/About/About';
+import City from './components/Slides/City/City';
+import Projects from './components/Slides/Projects/Projects';
+import Contact from './components/Slides/Contact/Contact';
+
 
 export type TSlide = {
   id: string;
@@ -8,6 +15,7 @@ export type TSlide = {
     video?: string;
   },
   contentColor: string;
+  Component: ReactNode,
 }
 
 const slidesConfig: TSlide[] = [
@@ -17,6 +25,15 @@ const slidesConfig: TSlide[] = [
       color: '#F0E4FF',
     },
     contentColor: '#F95C32',
+    Component: Intro,
+  },
+  {
+    id: 'projects',
+    background: {
+      color: '#FFF0EC',
+    },
+    contentColor: '#7232F9',
+    Component: Projects,
   },
   {
     id: 'about',
@@ -24,6 +41,7 @@ const slidesConfig: TSlide[] = [
       color: '#F95C32',
     },
     contentColor: '#F0E4FF',
+    Component: About,
   },
   {
     id: 'city',
@@ -31,13 +49,7 @@ const slidesConfig: TSlide[] = [
       video: amsterdamVideoSrc,
     },
     contentColor: '#FFFFFF',
-  },
-  {
-    id: 'skills',
-    background: {
-      color: '#FFF0EC',
-    },
-    contentColor: '#7232F9',
+    Component: City,
   },
   {
     id: 'contact',
@@ -45,6 +57,7 @@ const slidesConfig: TSlide[] = [
       color: '#F0E4FF',
     },
     contentColor: '#F95C32',
+    Component: Contact,
   },
 ];
 

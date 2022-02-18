@@ -9,6 +9,7 @@ type Props = {
   background: TSlide['background'];
   contentColor: string;
   isActive?: boolean;
+  key?: string;
 }
 
 const Slide = ({ children, background, contentColor, isActive }: Props) => {

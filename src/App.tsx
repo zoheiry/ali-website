@@ -36,21 +36,16 @@ const App = () => {
           return (
             <>
               <ReactFullpage.Wrapper>
-                <Slide {...slidesConfig?.[0]} isActive={activeSlideIndex === 0}>
-                  <Intro />
-                </Slide>
-                <Slide {...slidesConfig?.[1]} isActive={activeSlideIndex === 1}>
-                  <About />
-                </Slide>
-                <Slide {...slidesConfig?.[2]} isActive={activeSlideIndex === 2}>
-                  <City />
-                </Slide>
-                <Slide {...slidesConfig?.[3]} isActive={activeSlideIndex === 3}>
-                  <Projects />
-                </Slide>
-                <Slide {...slidesConfig?.[4]} isActive={activeSlideIndex === 4}>
-                  <Contact />
-                </Slide>
+                {slidesConfig.map((slide, slideIndex) => (
+                  <Slide
+                    key={slide.id}
+                    background={slide.background}
+                    contentColor={slide.contentColor}
+                    isActive={activeSlideIndex === slideIndex}
+                  >
+                    <slide.Component />
+                  </Slide>
+                ))}
               </ReactFullpage.Wrapper>
             </>
           );

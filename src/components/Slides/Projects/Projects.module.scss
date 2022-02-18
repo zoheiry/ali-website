@@ -29,26 +29,32 @@
 .projectCardWrapper {
   @include scalableRule(padding-left, 20);
   @include scalableRule(padding-right, 20);
+
+  .projectCard {
+    background-color: #000;
+    color: #FFF;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    @include scalableRule(border-radius, 8);
+    @include scalableRule(padding, 20);
+    @include scalableRule(width, 215);
+    @include scalableRule(height, 215);
+    position: relative;
+  }
 }
 
-.projectCard {
-  background-color: #FFF;
-  background-size: cover;
-  display: flex;
-  @include scalableRule(border-radius, 8);
-  @include scalableRule(padding, 20);
-  @include scalableRule(width, 215);
-  @include scalableRule(height, 215);
+.projectName,
+.projectTags {
   position: relative;
+  z-index: 1;
 }
 
 .projectName {
   font-weight: bold;
   font-family: 'Equip';
-  color: #fff;
   @include scalableRule(font-size, 20);
-  position: relative;
-  z-index: 1;
 }
 
 .overlay {
@@ -57,7 +63,7 @@
   height: 100%;
   top: 0;
   left: 0;
-  background: rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.3);
   @include scalableRule(border-radius, 8);
 }
 
