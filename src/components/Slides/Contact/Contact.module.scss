@@ -25,7 +25,7 @@
   @include scalableRule(margin-bottom, 16);
 
   > a {
-    display: flex;
+    display: inline-flex;
     align-items: center;
     
     &:hover {
@@ -51,14 +51,14 @@
   .socialLinksWrapper {
     @for $i from 1 through 4 {
       li:nth-child(#{$i}) {
-        @include animated(zoomIn, 0.5s + $i * 0.05);
+        @include animated(slideInLeft, 0.5s + $i * 0.1);
       }
     }
   }
 
   @for $i from 1 through 2 {
     .contactWrapper:nth-child(#{$i}) {
-      @include animated(slideInLeft, 0.5s + $i * 0.2);
+      @include animated(slideInLeft, 0.6s + $i * 0.2);
     }
   }
 }

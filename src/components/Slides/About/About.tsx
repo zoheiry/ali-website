@@ -9,10 +9,15 @@ const About = () => (
   <div className={Classes.root}>
     <Title as="h2" className={Classes.title}>ABOUT <br /> ME</Title>
     <BodyText as="h3" className={Classes.content}>
-      I am a software engineer with 8+ years of professional experience.
+      A curious problem seeker with <strong>8+ years of professional software engineering and leadership experience</strong>.
       <br />
       <br />
-      Passionate about web development with a focus on fullstack Javascript.
+      Explored various industries including <u>travel</u>, <u>fashion</u>, <u>education</u> and <u>e-commerce</u>.
+      <br />
+      Helped <strong>build startups</strong> as well as <strong>lead corporate teams</strong>.
+      <br />
+      <br />
+      <i>&quot;I do my best to bring passionate infectious energy to all my teams and I am motivated by challenging problems&quot;</i>
     </BodyText>
   </div>
 );

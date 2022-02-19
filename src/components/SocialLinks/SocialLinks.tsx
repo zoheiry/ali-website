@@ -19,22 +19,22 @@ type Props = {
 const SocialLinks = ({ className = '' }: Props) => (
   <ul className={`${Classes.root} ${className}`}>
     <li className={Classes.linkWrapper}>
-      <a href={LINKS.LINKEDIN} target="_blank" rel="noreferrer">
+      <a href={LINKS.LINKEDIN} target="_blank" rel="noreferrer" title="Linkedin">
         <FontAwesomeIcon icon={faLinkedinIn} />
       </a>
     </li>
     <li className={Classes.linkWrapper}>
-      <a href={LINKS.STACKOVERFLOW} target="_blank" rel="noreferrer">
+      <a href={LINKS.STACKOVERFLOW} target="_blank" rel="noreferrer" title="StackOverflow">
         <FontAwesomeIcon icon={faStackOverflow} />
       </a>
     </li>
     <li className={Classes.linkWrapper}>
-      <a href={LINKS.GITHUB} target="_blank" rel="noreferrer">
+      <a href={LINKS.GITHUB} target="_blank" rel="noreferrer" title="Github">
         <FontAwesomeIcon icon={faGithub} />
       </a>
     </li>
     <li className={Classes.linkWrapper}>
-      <a href={LINKS.CV} target="_blank" rel="noreferrer">
+      <a href={LINKS.CV} target="_blank" rel="noreferrer" title="CV">
         <FontAwesomeIcon icon={faAddressCard} />
       </a>
     </li>
