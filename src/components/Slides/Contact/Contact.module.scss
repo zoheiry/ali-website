@@ -58,7 +58,7 @@
 
   @for $i from 1 through 2 {
     .contactWrapper:nth-child(#{$i}) {
-      @include animated(slideInLeft, 0.6s + $i * 0.2);
+      @include animated(slideInLeft, 0.6s + $i * 0.1);
     }
   }
 }

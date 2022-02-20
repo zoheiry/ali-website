@@ -47,22 +47,18 @@
   }
 
   .role {
-    @include animated(slideInLeft, 1.2s);
+    @include animated(slideInRight, 1.2s);
   }
 
   .tagLine {
-    @include animated(slideInLeft, 1.4s);
+    @include animated(slideInRight, 1.3s);
   }
 
   .socialLinksWrapper {
     @for $i from 1 through 4 {
       li:nth-child(#{$i}) {
-        @include animated(slideInUp, 1.6s + $i * 0.05);
+        @include animated(slideInUp, 1.3s + $i * 0.05);
       }
     }
-  }
-
-  .button {
-    @include animated(slideInUp, 1.65s);
   }
 }
