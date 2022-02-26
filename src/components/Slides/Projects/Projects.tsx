@@ -26,7 +26,7 @@ const PROJECTS = [
   {
     name: 'EVOLVE',
     link: 'https://github.com/zoheiry/evolve',
-    tags: ['Productivity', 'React', 'MongoDB'],
+    tags: ['Node.js', 'React', 'MongoDB'],
     poster: {
       src: evolvePoster,
       backgroundStyles: {
