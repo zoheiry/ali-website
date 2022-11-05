@@ -26,12 +26,6 @@ const Contact = () => {
             <BodyText as="span">ali.elzoheiry@gmail.com</BodyText>
           </a>
         </li>
-        <li className={Classes.contactWrapper}>
-          <a href="tel:+31621372978">
-            <FontAwesomeIcon icon={faPhone} className={Classes.icon} />
-            <BodyText as="span">+31 (0)6 213 72 978</BodyText>
-          </a>
-        </li>
       </ul>
     </div>
   );
