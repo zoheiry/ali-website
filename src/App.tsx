@@ -19,6 +19,7 @@ const App = () => {
         slideIds={slideIds}
       />
       <ReactFullpage
+        licenseKey="gplv3-license"
         duration={600}
         easingcss3="ease"
         anchors={slideIds}
