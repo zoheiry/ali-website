@@ -1,6 +1,6 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faLinkedinIn, faGithub, faStackOverflow } from '@fortawesome/free-brands-svg-icons';
+import { faLinkedinIn, faGithub, faStackOverflow, faYoutube } from '@fortawesome/free-brands-svg-icons';
 
 import Classes from './SocialLinks.module.scss';
 import { faAddressCard } from '@fortawesome/free-solid-svg-icons';
@@ -10,6 +10,7 @@ const LINKS = {
   STACKOVERFLOW: 'https://stackoverflow.com/users/3481932/alizoh',
   GITHUB: 'https://github.com/zoheiry',
   CV: '/ali-elzoheiry-cv.pdf',
+  YOUTUBE: 'https://www.youtube.com/@AliElZoheiry/'
 };
 
 type Props = {
@@ -31,6 +32,11 @@ const SocialLinks = ({ className = '' }: Props) => (
     <li className={Classes.linkWrapper}>
       <a href={LINKS.GITHUB} target="_blank" rel="noreferrer" title="Github">
         <FontAwesomeIcon icon={faGithub} />
+      </a>
+    </li>
+    <li className={Classes.linkWrapper}>
+      <a href={LINKS.YOUTUBE} target="_blank" rel="noreferrer" title="CV">
+        <FontAwesomeIcon icon={faYoutube} />
       </a>
     </li>
     <li className={Classes.linkWrapper}>

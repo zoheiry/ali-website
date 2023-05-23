@@ -55,7 +55,7 @@
   }
 
   .socialLinksWrapper {
-    @for $i from 1 through 4 {
+    @for $i from 1 through 5 {
       li:nth-child(#{$i}) {
         @include animated(slideInUp, 1.3s + $i * 0.05);
       }
