@@ -6,6 +6,7 @@ import galaxyShooterPoster from '../../../images/project-posters/galaxy-shooter.
 import evolvePoster from '../../../images/project-posters/evolve.jpg';
 import reckonPoster from '../../../images/project-posters/reckon.png';
 import transactionInsightsPoster from '../../../images/project-posters/transaction-insights.png';
+import youTubePoster from '../../../images/project-posters/youtube.png';
 
 import Title from '../../Title/Title';
 
@@ -32,6 +33,18 @@ const PROJECTS = [
       backgroundStyles: {
         backgroundSize: '50%',
         backgroundRepeat: 'no-repeat',
+        backgroundPosition: '100% 90%',
+        backgroundColor: '#5e3b43',
+      }
+    }
+  },
+  {
+    name: 'GAME DEV\nTUTORIALS',
+    link: 'https://www.youtube.com/@AliElZoheiry/',
+    tags: ['Video Tutorials', 'Game Development', 'Unreal Engine 5'],
+    poster: {
+      src: youTubePoster,
+      backgroundStyles: {
         backgroundPosition: '100% 90%',
         backgroundColor: '#5e3b43',
       }
