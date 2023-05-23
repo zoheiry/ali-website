@@ -13,17 +13,6 @@ import Classes from './Projects.module.scss';
 
 const PROJECTS = [
   {
-    name: 'GALAXY\nSHOOTER',
-    link: 'https://github.com/zoheiry/galaxy-shooter',
-    tags: ['Game', 'Unity', 'C#'],
-    poster: {
-      src: galaxyShooterPoster,
-      backgroundStyles: {
-        backgroundPosition: '50% 100%',
-      },
-    },
-  },
-  {
     name: 'EVOLVE',
     link: 'https://github.com/zoheiry/evolve',
     tags: ['Node.js', 'React', 'MongoDB'],
@@ -31,6 +20,31 @@ const PROJECTS = [
       src: evolvePoster,
       backgroundStyles: {
         backgroundPosition: '100% 100%',
+      },
+    },
+  },
+  {
+    name: 'TRANSACTION\nINSIGHTS',
+    link: 'https://github.com/zoheiry/transactions-parser',
+    tags: ['Machine learning', 'Python', 'React'],
+    poster: {
+      src: transactionInsightsPoster,
+      backgroundStyles: {
+        backgroundSize: '50%',
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: '100% 90%',
+        backgroundColor: '#5e3b43',
+      }
+    }
+  },
+  {
+    name: 'GALAXY\nSHOOTER',
+    link: 'https://github.com/zoheiry/galaxy-shooter',
+    tags: ['Game', 'Unity', 'C#'],
+    poster: {
+      src: galaxyShooterPoster,
+      backgroundStyles: {
+        backgroundPosition: '50% 100%',
       },
     },
   },
@@ -46,20 +60,6 @@ const PROJECTS = [
       }
     }
   },
-  {
-    name: 'TRANSACTION\nINSIGHTS',
-    link: 'https://github.com/zoheiry/transactions-parser',
-    tags: ['Machine learning', 'Python', 'React'],
-    poster: {
-      src: transactionInsightsPoster,
-      backgroundStyles: {
-        backgroundSize: '50%',
-        backgroundRepeat: 'no-repeat',
-        backgroundPosition: '100% 90%',
-        backgroundColor: '#5e3b43',
-      }
-    }
-  }
 ];
 
 const Projects = () => {

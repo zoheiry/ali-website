@@ -16,8 +16,6 @@ const About = () => (
       <br />
       Helped <strong>build startups</strong> as well as <strong>lead and managed corporate teams</strong>.
       <br />
-      <br />
-      <i>&quot;I do my best to bring passionate infectious energy to all my teams and I am motivated by challenging problems&quot;</i>
     </BodyText>
   </div>
 );

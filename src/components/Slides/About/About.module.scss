@@ -19,6 +19,6 @@
   }
 
   .content {
-    @include animated(zoomOutIn, 0.8s);
+    @include animated(fadeIn, 0.8s);
   }
 }
