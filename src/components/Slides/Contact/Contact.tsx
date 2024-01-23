@@ -15,7 +15,7 @@ const Contact = () => {
     <div className={Classes.root}>
       <Title className={Classes.title}>CONTACT <br/> ME</Title>
 
-      <SubTitle as="p" className={Classes.text}>Write me an email or give me a call and let&apos;s grab some coffee</SubTitle>
+      <SubTitle as="p" className={Classes.text}>Write me an email and let&apos;s grab a coffee</SubTitle>
 
       <SocialLinks className={Classes.socialLinksWrapper} />
 

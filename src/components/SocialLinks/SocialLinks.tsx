@@ -9,7 +9,6 @@ const LINKS = {
   LINKEDIN: 'https://www.linkedin.com/in/ali-elzoheiry-53650677',
   STACKOVERFLOW: 'https://stackoverflow.com/users/3481932/alizoh',
   GITHUB: 'https://github.com/zoheiry',
-  CV: '/ali-elzoheiry-cv.pdf',
   YOUTUBE: 'https://www.youtube.com/@AliElZoheiry/'
 };
 
@@ -35,13 +34,8 @@ const SocialLinks = ({ className = '' }: Props) => (
       </a>
     </li>
     <li className={Classes.linkWrapper}>
-      <a href={LINKS.YOUTUBE} target="_blank" rel="noreferrer" title="CV">
+      <a href={LINKS.YOUTUBE} target="_blank" rel="noreferrer" title="YouTube">
         <FontAwesomeIcon icon={faYoutube} />
-      </a>
-    </li>
-    <li className={Classes.linkWrapper}>
-      <a href={LINKS.CV} target="_blank" rel="noreferrer" title="CV">
-        <FontAwesomeIcon icon={faAddressCard} />
       </a>
     </li>
   </ul>

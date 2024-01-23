@@ -15,7 +15,7 @@ const About = () => (
       A curious problem seeker with <strong>{YEARS_OF_EXPERIENCE}+ years of professional software engineering, management and leadership experience</strong>.
       <br />
       <br />
-      Explored various industries including <u>travel</u>, <u>fashion</u>, <u>education</u> and <u>e-commerce</u>.
+      Explored various industries including <u>travel</u>, <u>fashion</u>, <u>education</u>, <u>e-commerce</u> and <u>gaming</u>.
       <br />
       Helped <strong>build startups</strong> as well as <strong>lead and managed corporate teams</strong>.
       <br />
