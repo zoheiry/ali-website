@@ -10,9 +10,11 @@ type Props = {
   contentColor: string;
   isActive?: boolean;
   key?: string;
+  moveSectionDown?: () => void;
+  moveSectionUp?: () => void;
 }
 
-const Slide = ({ children, background, contentColor, isActive }: Props) => {
+const Slide = ({ children, background, contentColor, isActive, moveSectionDown, moveSectionUp }: Props) => {
   const style = {
     color: contentColor,
     ...(background.image && { backgroundImage: `url("${background.image}")` }),

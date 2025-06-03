@@ -1,6 +1,9 @@
 ### Description
 This is my personal static website which can be found on [alizoh.com](https://alizoh.com)
 
+### Node
+Node version 16.x
+
 ### AWS setup
 This website is statically hosted on AWS using S3, Cloudfront & Route 53, follow these steps to get the same setup:
 

@@ -26,7 +26,7 @@ const App = () => {
         recordHistory={false}
         normalScrollElements='.normalScroll'
         onLeave={(_, { index }) => { setActiveSlideIndex(index); }}
-        render={() => {
+        render={({ fullpageApi }) => {
           return (
             <>
               <ReactFullpage.Wrapper>
@@ -37,7 +37,9 @@ const App = () => {
                     contentColor={slide.contentColor}
                     isActive={activeSlideIndex === slideIndex}
                   >
-                    <slide.Component />
+                    <slide.Component
+                      fullpageApi={fullpageApi}
+                    />
                   </Slide>
                 ))}
               </ReactFullpage.Wrapper>

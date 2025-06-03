@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useRef, useState} from 'react';
 import BodyText from '../../BodyText/BodyText';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHashtag } from '@fortawesome/free-solid-svg-icons';
@@ -75,14 +75,46 @@ const PROJECTS = [
   },
 ];
 
-const Projects = () => {
+const Projects = ({ fullpageApi }) => {
+  const carousel = useRef(null);
+  const [isScrolling, setIsScrolling] = useState(false);
+
+  const handleWheel = (event) => {
+    if(!carousel.current) return;
+    const reachedEnd = carousel.current.scrollLeft + carousel.current.clientWidth >= carousel.current.scrollWidth - 1;
+    
+    if (reachedEnd && event.deltaY > 0 && !isScrolling) {
+      setIsScrolling(true);
+      setTimeout(() => {
+        setIsScrolling(false);
+      }, 1500);
+      fullpageApi.moveSectionDown();
+      return;
+    }
+
+    if (carousel.current.scrollLeft === 0 && event.deltaY < 0 && !isScrolling) {
+      setIsScrolling(true);
+      setTimeout(() => {
+        setIsScrolling(false);
+      }, 1500);
+      fullpageApi.moveSectionUp();
+      return;
+    }
+    if (event.deltaY !== 0) {
+      carousel.current.scrollBy({
+        left: event.deltaY * 5,
+        behavior: 'smooth'
+      });
+    }
+};
+
   return (
     <div className={Classes.root}>
       <div className={Classes.textContent}>
         <Title>SIDE <br /> PROJECTS</Title>
         <BodyText as="p">Some random things I had fun building</BodyText>
       </div>
-      <ul className={`${Classes.projectsList} normalScroll`}>
+      <ul className={`${Classes.projectsList} normalScroll`} onWheel={(event) => handleWheel(event, carousel?.current)} ref={carousel}>
         {PROJECTS.map(({ name, link, poster, tags }) => (
           <li className={Classes.projectCardWrapper} key={link}>
             <a

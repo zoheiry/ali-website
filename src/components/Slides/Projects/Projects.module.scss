@@ -43,6 +43,13 @@
     @include scalableRule(height, 215);
     position: relative;
   }
+  &:first-child {
+    @include scalableRule(padding-left, 50);
+  }
+
+  &:last-child {
+    @include scalableRule(padding-right, 100);
+  }
 }
 
 .projectName,

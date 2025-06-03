@@ -11,8 +11,8 @@ const Intro = () => (
   <div className={Classes.root}>
     <Title className={Classes.title}>ALI <br /> ELZOHEIRY</Title>
 
-    <SubTitle as="h2" className={Classes.role}>Engineering Manager @ <u>eBay</u></SubTitle>
-    <BodyText className={Classes.tagLine}>Engineer at heart, growth minded & curious</BodyText>
+    <SubTitle as="h2" className={Classes.role}>Owner of <a href="https://youtube.com/@alielzoheiry" target="_blank">Alizoh Studio</a></SubTitle>
+    <BodyText className={Classes.tagLine}>Software Engineer, Educator, Game Developer & Content Creator</BodyText>
     
     <SocialLinks className={Classes.socialLinksWrapper} />
   </div>
