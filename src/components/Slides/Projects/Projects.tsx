@@ -1,4 +1,4 @@
-import React, {useRef, useState} from 'react';
+import React, {useRef, useState, useEffect} from 'react';
 import BodyText from '../../BodyText/BodyText';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHashtag } from '@fortawesome/free-solid-svg-icons';
@@ -78,35 +78,42 @@ const PROJECTS = [
 const Projects = ({ fullpageApi }) => {
   const carousel = useRef(null);
   const [isScrolling, setIsScrolling] = useState(false);
+  const [showPrevControls, setShowPrevControls] = useState(false);
+  const [showNextControls, setShowNextControls] = useState(true);
 
-  const handleWheel = (event) => {
-    if(!carousel.current) return;
-    const reachedEnd = carousel.current.scrollLeft + carousel.current.clientWidth >= carousel.current.scrollWidth - 1;
-    
-    if (reachedEnd && event.deltaY > 0 && !isScrolling) {
-      setIsScrolling(true);
-      setTimeout(() => {
-        setIsScrolling(false);
-      }, 1500);
-      fullpageApi.moveSectionDown();
-      return;
-    }
+  useEffect(() => {
+    handleScrollChange();
+  }, []);
 
-    if (carousel.current.scrollLeft === 0 && event.deltaY < 0 && !isScrolling) {
-      setIsScrolling(true);
-      setTimeout(() => {
-        setIsScrolling(false);
-      }, 1500);
-      fullpageApi.moveSectionUp();
-      return;
+  const handleScrollChange = () => {
+    console.log('called')
+    const carouselDomElement = carousel?.current;
+
+    if (carouselDomElement) {
+      setShowPrevControls(carouselDomElement.scrollLeft > 300);
+      setShowNextControls(carouselDomElement.scrollLeft + carouselDomElement.clientWidth + 200 < carouselDomElement.scrollWidth);
     }
-    if (event.deltaY !== 0) {
-      carousel.current.scrollBy({
-        left: event.deltaY * 5,
+  }
+
+  const scrollCarousel = (factor) => {
+    const carouselDomElement = carousel?.current;
+
+    if (carouselDomElement) {
+      carouselDomElement.scrollBy({
+        left: carouselDomElement.clientWidth * factor,
         behavior: 'smooth'
       });
+      handleScrollChange();
     }
-};
+  }
+
+  const handleNextClick = () => {
+    scrollCarousel(1);
+  }
+
+  const handlePrevClick = () => {
+    scrollCarousel(-1);
+  }
 
   return (
     <div className={Classes.root}>
@@ -114,32 +121,38 @@ const Projects = ({ fullpageApi }) => {
         <Title>SIDE <br /> PROJECTS</Title>
         <BodyText as="p">Some random things I had fun building</BodyText>
       </div>
-      <ul className={`${Classes.projectsList} normalScroll`} onWheel={(event) => handleWheel(event, carousel?.current)} ref={carousel}>
-        {PROJECTS.map(({ name, link, poster, tags }) => (
-          <li className={Classes.projectCardWrapper} key={link}>
-            <a
-              className={Classes.projectCard}
-              href={link}
-              style={{ backgroundImage: `url("${poster.src}")`, ...(poster.backgroundStyles || {})}}
-              target="_blank"
-              rel="noreferrer"
-            >
-              <div className={Classes.overlay} />
-              <pre className={Classes.projectName}>{name}</pre>
-              <ul className={Classes.projectTags}>
-                {tags?.map((tag) => (
-                  <li key={`${name}-${tag}`}>
-                    <BodyText as="span">
-                      <FontAwesomeIcon icon={faHashtag}/>
-                      &nbsp;{tag}
-                    </BodyText>
-                  </li>
-                ))}
-              </ul>
-            </a>
-          </li>
-        ))}
-      </ul>
+      <div className={Classes.scrollWrapper}>
+        <div className={Classes.controls}>
+          {showPrevControls && <div className={Classes.previous} onClick={handlePrevClick}>{`<`}</div>}
+          {showNextControls && <div className={Classes.next} onClick={handleNextClick}>{`>`}</div>}
+        </div>
+        <ul className={`${Classes.projectsList}`} ref={carousel} onScroll={handleScrollChange}>
+          {PROJECTS.map(({ name, link, poster, tags }) => (
+            <li className={Classes.projectCardWrapper} key={link}>
+              <a
+                className={Classes.projectCard}
+                href={link}
+                style={{ backgroundImage: `url("${poster.src}")`, ...(poster.backgroundStyles || {})}}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <div className={Classes.overlay} />
+                <pre className={Classes.projectName}>{name}</pre>
+                <ul className={Classes.projectTags}>
+                  {tags?.map((tag) => (
+                    <li key={`${name}-${tag}`}>
+                      <BodyText as="span">
+                        <FontAwesomeIcon icon={faHashtag}/>
+                        &nbsp;{tag}
+                      </BodyText>
+                    </li>
+                  ))}
+                </ul>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 };

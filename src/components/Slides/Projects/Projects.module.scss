@@ -12,12 +12,75 @@
   @include scalableRule(padding-left, 32);
 }
 
+.scrollWrapper {
+  @include scalableRule(margin-top, 30);
+  position: relative;
+
+  &::before, &::after {
+    content: ' ';
+    background: rgba(255, 240, 236, 0.6);
+    height: calc(100% + 50px);
+    width: 82px;
+    position: absolute;
+    z-index: 1;
+    filter: blur(14px);
+    top: -25px;
+    pointer-events: none;
+  }
+
+  &::before {
+   left: -30px; 
+  }
+
+  &::after {
+    right: -30px;
+  }
+
+  
+}
+
+.controls {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+
+  > div {
+    font-size: 100px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    z-index: 2;
+    background: rgba(114, 50, 249, 0.4);
+    color: #FFF0EC;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.3s ease;
+
+    &:hover {
+      background: rgba(114, 50, 249, 0.8);
+    }
+  }
+
+  .previous {
+    left: 15px;
+  }
+
+  .next {
+    right: 15px;
+  }
+}
+
 .projectsList {
   display: flex;
   align-items: center;
   overflow: auto;
   @include scalableRule(padding-left, 50);
-  @include scalableRule(margin-top, 30);
 
   &::-webkit-scrollbar {
     display: none;
