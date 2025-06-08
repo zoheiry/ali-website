@@ -40,6 +40,10 @@
 }
 
 .controls {
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
+
   position: absolute;
   width: 100%;
   height: 100%;
