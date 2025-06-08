@@ -77,12 +77,23 @@ const PROJECTS = [
 
 const Projects = ({ fullpageApi }) => {
   const carousel = useRef(null);
-  const [isScrolling, setIsScrolling] = useState(false);
   const [showPrevControls, setShowPrevControls] = useState(false);
   const [showNextControls, setShowNextControls] = useState(true);
+  const [size, setSize] = useState({ width: window.innerWidth, height: window.innerHeight });
+  const isMobile = size.width < 768;
 
   useEffect(() => {
     handleScrollChange();
+
+    const handleResize = () => {
+      setSize({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   const handleScrollChange = () => {
@@ -126,7 +137,7 @@ const Projects = ({ fullpageApi }) => {
           {showPrevControls && <div className={Classes.previous} onClick={handlePrevClick}>{`<`}</div>}
           {showNextControls && <div className={Classes.next} onClick={handleNextClick}>{`>`}</div>}
         </div>
-        <ul className={`${Classes.projectsList}`} ref={carousel} onScroll={handleScrollChange}>
+        <ul className={`${Classes.projectsList} ${isMobile ? 'normalScroll' : ''}`} ref={carousel} onScroll={handleScrollChange}>
           {PROJECTS.map(({ name, link, poster, tags }) => (
             <li className={Classes.projectCardWrapper} key={link}>
               <a

@@ -110,6 +110,7 @@
   @include scalableRule(padding-right, 20);
 
   .projectCard {
+    position: relative;
     background-color: #000;
     color: #FFF;
     background-size: cover;
@@ -120,7 +121,10 @@
     @include scalableRule(padding, 20);
     @include scalableRule(width, 215);
     @include scalableRule(height, 215);
-    position: relative;
+    @media screen and (max-width: 768px) {
+      @include scalableRule(width, 250);
+      @include scalableRule(height, 250);
+    }
   }
   &:first-child {
     @include scalableRule(padding-left, 50);
