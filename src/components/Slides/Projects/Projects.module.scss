@@ -18,10 +18,14 @@
   overflow: hidden;
 
   &::before, &::after {
+    @media screen and (max-width: 768px) {
+      width: 30px; 
+    }
+
     content: ' ';
     background: rgba(255, 240, 236, 0.6);
     height: calc(100% + 50px);
-    width: 82px;
+    width: 80px;
     position: absolute;
     z-index: 1;
     filter: blur(14px);
@@ -30,10 +34,16 @@
   }
 
   &::before {
-   left: -30px; 
+    @media screen and (max-width: 768px) {
+      left: -15px; 
+    }
+    left: -30px;
   }
 
   &::after {
+    @media screen and (max-width: 768px) {
+      right: -15px; 
+    }
     right: -30px;
   }
 
