@@ -23,7 +23,7 @@ const Contact = () => {
         <li className={Classes.contactWrapper}>
           <a href="mailto:ali.elzoheiry@gmail.com">
             <FontAwesomeIcon icon={faEnvelope} className={Classes.icon} />
-            <BodyText as="span">ali.elzoheiry@gmail.com</BodyText>
+            <BodyText as="span">ali@alizoh.com</BodyText>
           </a>
         </li>
       </ul>
