@@ -18,14 +18,12 @@ module.exports = {
         ]
       },
       {
-        test: /\.(png|jpe?g|gif|mp4|woff|svg||eot|ttf|otf)$/i,
-        use: [
-          { loader: 'file-loader' },
-        ],
+        test: /\.(png|jpe?g|gif|mp4|woff|svg|eot|ttf|otf)$/i,
+        type: 'asset/resource',
       },
       {
         test: /\.(raw.html|raw.css)$/i,
-        loader: "raw-loader",
+        type: 'asset/source',
       },
     ]
   },

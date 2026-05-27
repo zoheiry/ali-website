@@ -9,6 +9,12 @@ const devConfig = {
   mode: 'development',
   devServer: {
     port,
+    client: {
+      overlay: {
+        errors: true,
+        warnings: false,
+      },
+    },
   },
   output: {
     publicPath: "/",
@@ -29,7 +35,13 @@ const devConfig = {
           },
           {
             loader: 'sass-loader',
-            options: { sourceMap: true }
+            options: {
+              sourceMap: true,
+              api: 'modern',
+              sassOptions: {
+                silenceDeprecations: ['import', 'legacy-js-api'],
+              },
+            }
           }
         ],
       },
@@ -39,7 +51,15 @@ const devConfig = {
         use: [
           { loader: 'style-loader' },
           { loader: 'css-loader' },
-          { loader: 'sass-loader' }
+          {
+            loader: 'sass-loader',
+            options: {
+              api: 'modern',
+              sassOptions: {
+                silenceDeprecations: ['import', 'legacy-js-api'],
+              },
+            }
+          }
         ],
       },
     ],

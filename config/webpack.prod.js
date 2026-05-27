@@ -19,7 +19,15 @@ const prodConfig = {
             loader: 'css-loader',
             options: { modules: true },
           },
-          { loader: 'sass-loader' },
+          {
+            loader: 'sass-loader',
+            options: {
+              api: 'modern',
+              sassOptions: {
+                silenceDeprecations: ['import', 'legacy-js-api'],
+              },
+            }
+          },
         ],
       },
       {
@@ -28,15 +36,23 @@ const prodConfig = {
         use: [
           { loader: MiniCssExtractPlugin.loader },
           { loader: 'css-loader' },
-          { loader: 'sass-loader' },
+          {
+            loader: 'sass-loader',
+            options: {
+              api: 'modern',
+              sassOptions: {
+                silenceDeprecations: ['import', 'legacy-js-api'],
+              },
+            }
+          },
         ],
       },
     ],
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: '[name].[hash].css',
-      chunkFilename: '[id].[hash].css'
+      filename: '[name].[contenthash].css',
+      chunkFilename: '[id].[contenthash].css'
     })
   ]
 };
