@@ -14,31 +14,6 @@ import Classes from './Projects.module.scss';
 
 const PROJECTS = [
   {
-    name: 'EVOLVE',
-    link: 'https://github.com/zoheiry/evolve',
-    tags: ['Node.js', 'React', 'MongoDB'],
-    poster: {
-      src: evolvePoster,
-      backgroundStyles: {
-        backgroundPosition: '100% 100%',
-      },
-    },
-  },
-  {
-    name: 'TRANSACTION\nINSIGHTS',
-    link: 'https://github.com/zoheiry/transactions-parser',
-    tags: ['Machine learning', 'Python', 'React'],
-    poster: {
-      src: transactionInsightsPoster,
-      backgroundStyles: {
-        backgroundSize: '50%',
-        backgroundRepeat: 'no-repeat',
-        backgroundPosition: '100% 90%',
-        backgroundColor: '#5e3b43',
-      }
-    }
-  },
-  {
     name: 'GAME DEV\nTUTORIALS',
     link: 'https://www.youtube.com/@AliElZoheiry/',
     tags: ['Video Tutorials', 'Game Development', 'Unreal Engine 5'],
@@ -73,6 +48,31 @@ const PROJECTS = [
       }
     }
   },
+  {
+    name: 'EVOLVE',
+    link: 'https://github.com/zoheiry/evolve',
+    tags: ['Node.js', 'React', 'MongoDB'],
+    poster: {
+      src: evolvePoster,
+      backgroundStyles: {
+        backgroundPosition: '100% 100%',
+      },
+    },
+  },
+  {
+    name: 'TRANSACTION\nINSIGHTS',
+    link: 'https://github.com/zoheiry/transactions-parser',
+    tags: ['Machine learning', 'Python', 'React'],
+    poster: {
+      src: transactionInsightsPoster,
+      backgroundStyles: {
+        backgroundSize: '50%',
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: '100% 90%',
+        backgroundColor: '#5e3b43',
+      }
+    }
+  }
 ];
 
 const Projects = ({ fullpageApi }) => {
